@@ -27,3 +27,19 @@ function checkCookies() {
 }
 
 addEventListener("DOMContentLoaded", checkCookies); // "Cuando el HTML esté listo, ejecuta checkCookies automáticamente"
+
+addEventListener("input", () => {
+  const numberOfLetters =
+    document.getElementById("messageTextarea").value.length;
+  document.getElementById("counter").innerHTML = numberOfLetters;
+  console.log(numberOfLetters);
+  if (numberOfLetters >= 200) {
+    document.getElementById("messageTextarea").classList.add("error");
+    document.getElementById("counter").style.color = "red";
+    document.getElementById("messageCounter").style.color = "red";
+  } else {
+    document.getElementById("messageTextarea").classList.remove("error");
+    document.getElementById("counter").style.color = "black";
+    document.getElementById("messageCounter").style.color = "black";
+  }
+});
